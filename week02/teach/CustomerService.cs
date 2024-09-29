@@ -18,7 +18,7 @@ public class CustomerService {
         // Defect(s) Found: 
 
         Console.WriteLine("=================");
-
+ 
         // Test 2
         // Scenario: 
         // Expected Result: 
@@ -67,7 +67,8 @@ public class CustomerService {
     /// </summary>
     private void AddNewCustomer() {
         // Verify there is room in the service queue
-        if (_queue.Count > _maxSize) {
+
+        if (_queue.Count >= _maxSize) {//Fixing code: Changed from '>' to '>='
             Console.WriteLine("Maximum Number of Customers in Queue.");
             return;
         }
@@ -88,9 +89,15 @@ public class CustomerService {
     /// Dequeue the next customer and display the information.
     /// </summary>
     private void ServeCustomer() {
-        _queue.RemoveAt(0);
-        var customer = _queue[0];
-        Console.WriteLine(customer);
+        // Fixing code: Check if the queue is empty before serving a customer
+        if (_queue.Count <=0){
+            Console.WriteLine("No Customers in queue to serve.");
+            return;
+        }
+        
+        var customer = _queue[0];// Get the next customer to serve
+        _queue.RemoveAt(0);      // Then remove the customer from the queue
+        Console.WriteLine(customer); // Display the served customer
     }
 
     /// <summary>
