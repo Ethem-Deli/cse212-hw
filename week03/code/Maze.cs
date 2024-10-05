@@ -32,7 +32,17 @@ public class Maze
     /// </summary>
     public void MoveLeft()
     {
-        // FILL IN CODE
+        // Check if moving left is possible (left direction is at index 0 in the array).
+        if (_mazeMap[(_currX, _currY)][0])  // Left is at index 0
+        {
+            // If true, update the current X position (move left).
+            _currX -= 1;
+        }
+        else
+        {
+            // Otherwise, throw an exception indicating a wall is present.
+            throw new InvalidOperationException("Can't go that way!");
+        }
     }
 
     /// <summary>
@@ -41,7 +51,17 @@ public class Maze
     /// </summary>
     public void MoveRight()
     {
-        // FILL IN CODE
+        // Check if moving right is possible (right direction is at index 1 in the array).
+        if (_mazeMap[(_currX, _currY)][1])  // Right is at index 1
+        {
+            // If true, update the current X position (move right).
+            _currX += 1;
+        }
+        else
+        {
+            // Otherwise, throw an exception indicating a wall is present.
+            throw new InvalidOperationException("Can't go that way!");
+        }
     }
 
     /// <summary>
@@ -50,7 +70,17 @@ public class Maze
     /// </summary>
     public void MoveUp()
     {
-        // FILL IN CODE
+        // Check if moving up is possible (up direction is at index 2 in the array).
+        if (_mazeMap[(_currX, _currY)][2])  // Up is at index 2
+        {
+            // If true, update the current Y position (move up).
+            _currY -= 1;
+        }
+        else
+        {
+            // Otherwise, throw an exception indicating a wall is present.
+            throw new InvalidOperationException("Can't go that way!");
+        }
     }
 
     /// <summary>
@@ -59,7 +89,17 @@ public class Maze
     /// </summary>
     public void MoveDown()
     {
-        // FILL IN CODE
+        // Check if moving down is possible (down direction is at index 3 in the array).
+        if (_mazeMap[(_currX, _currY)][3])  // Down is at index 3
+        {
+            // If true, update the current Y position (move down).
+            _currY += 1;
+        }
+        else
+        {
+            // Otherwise, throw an exception indicating a wall is present.
+            throw new InvalidOperationException("Can't go that way!");
+        }
     }
 
     public string GetStatus()

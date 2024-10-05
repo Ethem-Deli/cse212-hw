@@ -11,6 +11,7 @@ public class TranslatorSolution
         Console.WriteLine(englishToGerman.Translate("Train")); // ???
     }
 
+
     private Dictionary<string, string> _words = new();
 
     /// <summary>
