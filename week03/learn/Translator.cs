@@ -1,18 +1,19 @@
 public class Translator
 {
+    // The main method to run the test cases
     public static void Run()
     {
         var englishToGerman = new Translator();
         englishToGerman.AddWord("House", "Haus");
         englishToGerman.AddWord("Car", "Auto");
         englishToGerman.AddWord("Plane", "Flugzeug");
-        Console.WriteLine(englishToGerman.Translate("Car")); // Auto
+        Console.WriteLine(englishToGerman.Translate("Car"));   // Auto
         Console.WriteLine(englishToGerman.Translate("Plane")); // Flugzeug
         Console.WriteLine(englishToGerman.Translate("Train")); // ???
     }
 
-
-    private Dictionary<string, string> _words = new();
+    // A dictionary to store word translations
+    private Dictionary<string, string> _words = new Dictionary<string, string>();
 
     /// <summary>
     /// Add the translation from 'from_word' to 'to_word'
@@ -25,7 +26,8 @@ public class Translator
     /// <returns>fixed array of divisors</returns>
     public void AddWord(string fromWord, string toWord)
     {
-        // ADD YOUR CODE HERE
+        // Add the translation to the dictionary
+        _words[fromWord] = toWord;
     }
 
     /// <summary>
@@ -35,7 +37,15 @@ public class Translator
     /// <returns>The translated word or "???" if no translation is available</returns>
     public string Translate(string fromWord)
     {
-        // ADD YOUR CODE HERE
-        return "";
+        // Check if the word exists in the dictionary
+        if (_words.ContainsKey(fromWord))
+        {
+            return _words[fromWord];
+        }
+        else
+        {
+            // Return "???" if translation is not available
+            return "???";
+        }
     }
 }
